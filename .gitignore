@@ -1,0 +1,15 @@
+# Ignore build directories and files
+/build/
+/CMakeFiles/
+CMakeCache.txt
+Makefile
+*.o
+*.obj
+*.exe
+*.out
+*.log
+
+# Ignore editor and OS specific files
+.vscode/
+*.swp
+.DS_Store
