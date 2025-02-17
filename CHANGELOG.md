@@ -1,49 +1,45 @@
 # CHANGELOG
 
-## [v0.1.0] - 2025-02-17
+## [v0.2.0] - 2025-02-17
 
 ### Added
-- **Modern C++ Adoption:**
-  - Upgraded the project to C++17, utilizing features such as `std::string`, lambda expressions, and RAII for resource management.
-- **Thread-Safe Queue:**
-  - Introduced a `ThreadSafeWordQueue` class to safely pass words from the input thread to the worker thread.
-  - Implemented using `std::mutex` and `std::condition_variable` to avoid race conditions and busy waiting.
-- **WordCounter Class:**
-  - Encapsulated word counting logic into a separate `WordCounter` class.
-  - Processes words from the queue and maintains counts in an `std::unordered_map`.
-- **Safe Input Handling:**
-  - Replaced unsafe C-style functions (like `std::gets` and `std::strcpy`) with `std::getline` and `std::string` to ensure buffer-safe input.
-- **Sorting and Interactive Lookup:**
-  - After processing input, the program copies the word counts into a vector, sorts it alphabetically, and prints the sorted list.
-  - Added an interactive lookup mode to query word counts.
-- **Unit Testing:**
-  - Added a simple test suite using assert-based tests (in `tests/simple_tests.cpp`) to validate the word counting logic without relying on external libraries.
-- **CMake Build System:**
-  - Created a top-level `CMakeLists.txt` for building the project.
-  - Added a separate `CMakeLists.txt` in the `tests` directory for building tests.
-- **Improved Project Structure:**
-  - Organized project directories for clarity:
-    - `include/` for header files.
-    - `src/` for source files.
-    - `docs/` for documentation.
-    - `scripts/` for build scripts.
-    - `tests/` for test files.
-    - Root-level documentation (README, CHANGELOG).
+- **C++17 Modernization:**
+  - Upgraded the project to use C++17 features including `std::string`, lambda expressions, and RAII for safer memory management.
+  
+- **Thread-Safe Components:**
+  - Added a **ThreadSafeWordQueue** class (with header in `include/ThreadSafeWordQueue.h` and implementation in `src/ThreadSafeWordQueue.cpp`) to handle safe communication between threads using `std::mutex` and `std::condition_variable`.
+  - Encapsulated the word counting logic into a **WordCounter** class (with header in `include/WordCounter.h` and implementation in `src/WordCounter.cpp`) that processes words from the queue and maintains counts in an `std::unordered_map`.
+
+- **Safe Input and Processing:**
+  - Replaced unsafe C-style input functions with `std::getline` for robust reading of input.
+  - Implemented logic to count and sort words alphabetically, then provide an interactive lookup mode.
+
+- **Build System Improvements:**
+  - Created a **CMakeLists.txt** to facilitate cross-platform builds and proper linking of all source files.
+  - Configured the project to generate Unix Makefiles, ensuring compatibility on Ubuntu.
+  - Added a custom **.vscode/tasks.json** that uses a shell task with wildcard expansion to compile all source files, simplifying the build process without relying on the default "build active file" task.
+  - Updated **launch.json** for easy debugging from within VS Code by setting a preLaunchTask that builds the entire project.
+
+- **Testing Infrastructure:**
+  - Added a simple test executable (located in `tests/simple_tests.cpp`) along with its own CMake configuration to validate the functionality of the core classes without external dependencies.
 
 ### Fixed
-- **Race Conditions:**
-  - Removed unsafe shared variable and busy waiting loop by implementing a thread-safe queue with proper locking mechanisms.
-- **Memory Leaks:**
-  - Eliminated manual memory management by replacing raw pointers with STL containers.
-- **Unsorted Output:**
-  - Resolved sorting issues by copying the unordered_map to a vector and sorting it using a custom comparator.
+- **Linking and Build Issues:**
+  - Resolved linker errors by ensuring that all source files (`main.cpp`, `ThreadSafeWordQueue.cpp`, and `WordCounter.cpp`) are compiled and linked together.
+  - Removed redundant build tasks from tasks.json so that only the custom "Build Entire Project" task is used, avoiding conflicts with default tasks provided by the C/C++ extension.
+  
+- **Project Structure and Configuration:**
+  - Organized project folders:  
+    - `include/` for header files,  
+    - `src/` for implementation files,  
+    - `bin/` for build outputs,  
+    - `tests/` for test sources and CMake configurations,  
+    - `docs/` for documentation.
+  - Updated the VS Code configuration files (`tasks.json` and `launch.json`) to streamline building and debugging within the IDE.
 
-### Advantages of This Format
-- **Clarity:**  
-  The use of headings and bullet points makes it easy to understand the scope of changes.
-- **Readability:**  
-  Markdown formatting highlights key sections and improves readability across different tools (GitHub, VSCode, etc.).
-- **Documentation:**  
-  A well-structured changelog helps team members and users quickly grasp the evolution of the project.
-- **Future Maintenance:**  
-  Clear versioning and date stamps simplify tracking changes and planning future updates.
+### Notes
+- The **custom build task** in `.vscode/tasks.json` now uses a shell command to compile all `.cpp` files from the `src` directory with proper include paths, making it unnecessary to update the task when adding new source files.
+- The project is now fully configured to build with CMake or via the custom VS Code task, offering flexibility based on your development preferences.
+- The integration with VS Code’s debugging tools via the updated **launch.json** makes it easy to run and debug the application with a single press of F5.
+
+---

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(BarakKorenProject)
+project(WordTracker)
 
 # Set the C++ standard to C++17.
 set(CMAKE_CXX_STANDARD 17)
@@ -11,13 +11,19 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 # Optionally, set output directories for build artifacts.
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
-# Add the executable.
-# This assumes that all your main source files are in the 'src' directory.
+# Add the library target.
 file(GLOB_RECURSE SOURCE_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
-add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+add_library(WordTrackerLibrary ${SOURCE_FILES})
 
-# If you have any required libraries to link, add them here.
-# For example: target_link_libraries(${PROJECT_NAME} some_library)
+# Add the executable and link all source files
+add_executable(WordTracker 
+    src/main.cpp 
+    src/ThreadSafeWordQueue.cpp 
+    src/WordCounter.cpp
+)
+
+# Link the executable to the library.
+target_link_libraries(${PROJECT_NAME} PRIVATE WordTrackerLibrary)
 
 # Enable testing and add the tests directory.
 enable_testing()

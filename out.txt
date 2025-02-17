@@ -1,0 +1,116 @@
+.
+├── bin
+│   ├── tests
+│   └── WordTracker
+├── build
+│   ├── CMakeCache.txt
+│   ├── CMakeFiles
+│   │   ├── 3.28.3
+│   │   │   ├── CMakeCCompiler.cmake
+│   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   ├── CMakeSystem.cmake
+│   │   │   ├── CompilerIdC
+│   │   │   │   ├── a.out
+│   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   └── tmp
+│   │   │   └── CompilerIdCXX
+│   │   │       ├── a.out
+│   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │       └── tmp
+│   │   ├── cmake.check_cache
+│   │   ├── CMakeConfigureLog.yaml
+│   │   ├── CMakeDirectoryInformation.cmake
+│   │   ├── Makefile2
+│   │   ├── Makefile.cmake
+│   │   ├── pkgRedirects
+│   │   ├── progress.marks
+│   │   ├── TargetDirectories.txt
+│   │   ├── WordTracker.dir
+│   │   │   ├── build.make
+│   │   │   ├── cmake_clean.cmake
+│   │   │   ├── compiler_depend.make
+│   │   │   ├── compiler_depend.ts
+│   │   │   ├── DependInfo.cmake
+│   │   │   ├── depend.make
+│   │   │   ├── flags.make
+│   │   │   ├── link.txt
+│   │   │   ├── progress.make
+│   │   │   └── src
+│   │   │       ├── main.cpp.o
+│   │   │       ├── main.cpp.o.d
+│   │   │       ├── ThreadSafeWordQueue.cpp.o
+│   │   │       ├── ThreadSafeWordQueue.cpp.o.d
+│   │   │       ├── WordCounter.cpp.o
+│   │   │       └── WordCounter.cpp.o.d
+│   │   └── WordTrackerLibrary.dir
+│   │       ├── build.make
+│   │       ├── cmake_clean.cmake
+│   │       ├── cmake_clean_target.cmake
+│   │       ├── compiler_depend.make
+│   │       ├── compiler_depend.ts
+│   │       ├── DependInfo.cmake
+│   │       ├── depend.make
+│   │       ├── flags.make
+│   │       ├── link.txt
+│   │       ├── progress.make
+│   │       └── src
+│   │           ├── main.cpp.o
+│   │           ├── main.cpp.o.d
+│   │           ├── ThreadSafeWordQueue.cpp.o
+│   │           ├── ThreadSafeWordQueue.cpp.o.d
+│   │           ├── WordCounter.cpp.o
+│   │           └── WordCounter.cpp.o.d
+│   ├── cmake_install.cmake
+│   ├── compile_commands.json
+│   ├── CTestTestfile.cmake
+│   ├── libWordTrackerLibrary.a
+│   ├── Makefile
+│   ├── Testing
+│   │   ├── 20250217-1619
+│   │   │   └── Test.xml
+│   │   ├── TAG
+│   │   └── Temporary
+│   │       ├── CTestCostData.txt
+│   │       ├── LastTest_20250217-1619.log
+│   │       └── LastTest.log
+│   └── tests
+│       ├── CMakeFiles
+│       │   ├── CMakeDirectoryInformation.cmake
+│       │   ├── progress.marks
+│       │   └── tests.dir
+│       │       ├── build.make
+│       │       ├── cmake_clean.cmake
+│       │       ├── compiler_depend.make
+│       │       ├── compiler_depend.ts
+│       │       ├── DependInfo.cmake
+│       │       ├── depend.make
+│       │       ├── flags.make
+│       │       ├── link.txt
+│       │       ├── progress.make
+│       │       ├── tests.cpp.o
+│       │       └── tests.cpp.o.d
+│       ├── cmake_install.cmake
+│       ├── CTestTestfile.cmake
+│       └── Makefile
+├── CHANGELOG.md
+├── CMakeLists.txt
+├── docs
+│   └── Reactor Coding Challenge 01.pdf
+├── include
+│   ├── ThreadSafeWordQueue.h
+│   └── WordCounter.h
+├── out.txt
+├── README.md
+├── scripts
+│   └── setup.sh
+├── src
+│   ├── main.cpp
+│   ├── ThreadSafeWordQueue.cpp
+│   └── WordCounter.cpp
+└── tests
+    ├── CMakeLists.txt
+    └── tests.cpp
+
+25 directories, 89 files
