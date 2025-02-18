@@ -20,6 +20,7 @@ add_executable(WordTracker
     src/main.cpp 
     src/ThreadSafeWordQueue.cpp 
     src/WordCounter.cpp
+    src/WordTracker.cpp
 )
 
 # Link the executable to the library.
