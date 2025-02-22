@@ -14,7 +14,7 @@ void printWordTrackerTitle();
 void readInputWords(ThreadSafeWordQueue &wordQueue);
 
 // Prints the sorted word list from the given word count map.
-void printSortedWordList(const std::unordered_map<std::string, int>& counts);
+void printSortedWordList(const std::vector<std::pair<std::string, int>>& sortedCounts);
 
 // Handles interactive lookup of words (terminates on EOF).
 void interactiveLookup(const std::unordered_map<std::string, int>& counts);

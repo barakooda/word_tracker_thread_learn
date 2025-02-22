@@ -1,4 +1,5 @@
 #include "WordCounter.h"
+#include <algorithm>
 
 void WordCounter::processQueue(ThreadSafeWordQueue & wordQueue) {
     while (true) {
@@ -22,4 +23,14 @@ void WordCounter::processQueue(ThreadSafeWordQueue & wordQueue) {
 std::unordered_map<std::string, int> WordCounter::getWordCounts() const {
     std::lock_guard<std::mutex> lock(countsMutex);
     return counts;
+}
+
+std::vector<std::pair<std::string, int>> WordCounter::getSortedCounts() const {
+    std::lock_guard<std::mutex> lock(countsMutex);
+    std::vector<std::pair<std::string, int>> sortedCounts(counts.begin(), counts.end());
+    std::sort(sortedCounts.begin(), sortedCounts.end(),
+              [](const auto &a, const auto &b) {
+                  return a.first < b.first;
+              });
+    return sortedCounts;
 }

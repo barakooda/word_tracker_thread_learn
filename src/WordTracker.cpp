@@ -1,4 +1,5 @@
 #include "WordTracker.h"
+#include "WordCounter.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -40,7 +41,7 @@ ___  __        __        ___  __
  |  |  \ /~~\ \__, |  \ |___ |  \ 
                                   
 )" << std::endl;
-  std::cout << "Welcome to the Word Counter Program!\n";
+  std::cout << "Welcome to the Word Tracker Program!\n";
   std::cout << "Please enter a list of words, one per line.\n";
   std::cout << "When you are done, type 'end' to finish.\n";
   std::cout << "------------------------------------------------\n";
@@ -69,18 +70,6 @@ void readInputWords(ThreadSafeWordQueue &wordQueue)
   }
 }
 
-// Copies the word counts into a vector, sorts them alphabetically, and prints them.
-void printSortedWordList(const std::unordered_map<std::string, int>& counts)
-{
-  std::vector<std::pair<std::string, int>> sortedWordList(counts.begin(), counts.end());
-  std::sort(sortedWordList.begin(), sortedWordList.end(),
-            [](const auto &a, const auto &b) { return a.first < b.first; });
-  std::cout << "\n=== Sorted Word List ===\n";
-  for (const auto &entry : sortedWordList)
-  {
-    std::cout << entry.first << ": " << entry.second << "\n";
-  }
-}
 
 // Handles interactive lookup (input is read until EOF is encountered).
 void interactiveLookup(const std::unordered_map<std::string, int>& counts)
@@ -110,4 +99,14 @@ void interactiveLookup(const std::unordered_map<std::string, int>& counts)
     }
   }
   std::cout << "\n=== Total words found: " << totalFound << " ===\n";
+}
+
+
+
+// Function to print sorted word counts obtained from WordCounter
+void printSortedWordList(const std::vector<std::pair<std::string, int>>& sortedCounts) {
+  std::cout << "\n=== Sorted Word List ===\n";
+  for (const auto &entry : sortedCounts) {
+      std::cout << entry.first << ": " << entry.second << "\n";
+  }
 }

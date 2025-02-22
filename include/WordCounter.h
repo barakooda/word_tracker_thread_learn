@@ -14,6 +14,9 @@ public:
     // Retrieves a copy of the current word counts.
     std::unordered_map<std::string, int> getWordCounts() const;
 
+    // Returns the counts sorted alphabetically as a vector of pairs.
+    std::vector<std::pair<std::string, int>> getSortedCounts() const;
+
 private:
     std::unordered_map<std::string, int> counts; // Internal container for word counts.
     mutable std::mutex countsMutex;              // Mutex to protect access to counts.
