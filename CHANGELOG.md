@@ -28,25 +28,22 @@
 - Integrated a CMake build system (root `CMakeLists.txt`) to compile all source files in `src/` with headers from `include/`.
 - Configured VS Code tasks and launch settings for full-project builds and debugging.
 - Added a unified setup script (`scripts/setup.sh`) for automated building, cleaning, and testing on Ubuntu.
-### Changed
-- Reorganized the project structure into `src/` (source), `include/` (headers), `tests/` (unit tests), `scripts/` (automation), and `docs/` (documentation).
+- Developed UI functions and utility functions (in WordTracker.cpp/h) to print the title, read input, and handle interactive lookup.
+- Added helper functions `trim()` and `isValidWord()` for robust input validation.
+
 ### Fixed
 - Fixed build and linking issues by ensuring all source files are properly included via CMake.
 
----
-
-## [v0.3.0] - 2025-02-18
-### Added
-- Developed UI functions and utility functions (in WordTracker.cpp/h) to print the title, read input, and handle interactive lookup.
-- Added helper functions `trim()` and `isValidWord()` for robust input validation.
 ### Changed
+- Reorganized the project structure into `src/` (source), `include/` (headers), `tests/` (unit tests), 
+  `scripts/` (automation), and `docs/`      (documentation).
 - Separated UI/utility functions from core processing logic to improve modularity.
 
 ---
 
-## [v0.2.0] - 2025-02-17
+## [v0.2.0] - 2025-02-18
 ### Added
-- Migrated from C-style strings and manual memory management to using `std::string` and STL containers (C++17).
+- Migrated from C-style strings and manual memory management to using `std::string`.
 - Introduced `ThreadSafeWordQueue` for safe inter-thread communication using `std::mutex` and `std::condition_variable`.
 - Created `WordCounter` to process words from the queue and maintain counts in an `std::unordered_map`.
 ### Fixed
@@ -56,5 +53,5 @@
 
 ## [v0.1.0] - 2025-02-16
 ### Learning Phase
-- Reviewed and studied an old solution (used as a learning exercise) that relied on global variables, C-style strings, and raw pointers.
+- Reviewed and studied an old solution (bad_code.cxx) that relied on global variables, C-style strings, and raw pointers.
 - Gained understanding of race conditions, unsafe input handling, and manual memory management.

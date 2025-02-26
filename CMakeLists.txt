@@ -8,24 +8,24 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Include the 'include' directory for header files.
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-# Optionally, set output directories for build artifacts.
+# Optionally, set output directory for executables.
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
-# Add the library target.
-file(GLOB_RECURSE SOURCE_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
-add_library(WordTrackerLibrary ${SOURCE_FILES})
-
-# Add the executable and link all source files
-add_executable(WordTracker 
-    src/main.cpp 
-    src/ThreadSafeWordQueue.cpp 
+# Define the library target using only the common source files.
+add_library(WordTrackerLibrary
+    src/ThreadSafeWordQueue.cpp
     src/WordCounter.cpp
     src/WordTracker.cpp
 )
 
-# Link the executable to the library.
-target_link_libraries(${PROJECT_NAME} PRIVATE WordTrackerLibrary)
+# Define the executable target using main.cpp.
+add_executable(WordTracker src/main.cpp)
+
+# Link the executable with the library.
+target_link_libraries(WordTracker PRIVATE WordTrackerLibrary)
 
 # Enable testing and add the tests directory.
 enable_testing()
 add_subdirectory(tests)
+
+file(COPY ${PROJECT_SOURCE_DIR}/media DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
