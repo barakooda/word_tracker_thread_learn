@@ -15,9 +15,6 @@ WordTracker/
 ├── CMakeLists.txt
 ├── README.md
 ├── CHANGELOG.md
-├── docs/
-│   └── Reactor Coding Challenge 01.pdf
-│   └── bad_old_code.cxx
 ├── include/
 │   ├── ThreadSafeWordQueue.h
 │   ├── WordCounter.h
