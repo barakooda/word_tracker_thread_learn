@@ -1,20 +1,8 @@
 # WordTracker
 
-WordTracker is a multi-threaded C++ application developed as a solution to the **Reactor Coding Challenge 01**. The assignment required fixing and improving a pre-existing C++ project by enhancing its functionality, robustness, and maintainability. This project reads a list of words from standard input, counts the occurrences of each word (ignoring the termination keyword `"end"`), prints the words in alphabetical order, and then provides an interactive lookup mode for querying individual word counts.
-
-## Assignment Context
-
-The Reactor Coding Challenge 01 tasked you with:
-- **Bug Fixing:** Identify and resolve issues in the existing code.
-- **Design Improvements:** Refactor the code for better maintainability and readability.
-- **Enhanced Functionality:** Implement multi-threaded word processing, robust input handling, and an interactive lookup mode.
-- **Modern C++ Usage:** Utilize C++17 features and practices.
-- **Testing:** Include unit tests to validate the behavior of core components.
-
-This solution meets those requirements by clearly separating the thread-safe queue, word counting logic, and user-interaction functionality into distinct modules.
+WordTracker is a multi-threaded C++ application. This project reads a list of words from standard input, counts the occurrences of each word (ignoring the termination keyword `"end"`), prints the words in alphabetical order, and then provides an interactive lookup mode for querying individual word counts.
 
 ## Features
-
 - **Multi-threaded Processing:** A dedicated worker thread processes words from a thread-safe queue.
 - **Robust Input Handling:** Input is validated and trimmed to ensure accurate word counting.
 - **Interactive Lookup:** Users can query word counts interactively (terminates on EOF).
